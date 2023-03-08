@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_menu_app/utils/routes/routes.dart';
+import 'package:restaurant_menu_app/utils/routes/routes_name.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      initialRoute: RoutesName.home,
+      onGenerateRoute: Routes.generateRoute,
     );
   }
 }
