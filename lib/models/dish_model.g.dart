@@ -7,7 +7,7 @@ part of 'dish_model.dart';
 // **************************************************************************
 
 DishModel _$DishModelFromJson(Map<String, dynamic> json) => DishModel(
-      id: json['id'] as String?,
+      id: json['_id'] as String?,
       name: json['name'] as String?,
       description: json['description'] as String?,
       price: json['price'] as String?,
@@ -19,7 +19,7 @@ DishModel _$DishModelFromJson(Map<String, dynamic> json) => DishModel(
     );
 
 Map<String, dynamic> _$DishModelToJson(DishModel instance) => <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'price': instance.price,

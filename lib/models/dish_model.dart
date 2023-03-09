@@ -6,7 +6,8 @@ part 'dish_model.g.dart';
 
 @JsonSerializable()
 class DishModel {
-  String? id;
+  @JsonKey(name: '_id')
+  final String? id;
   String? name;
   String? description;
   String? price;
