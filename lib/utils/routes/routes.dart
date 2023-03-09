@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant_menu_app/utils/routes/routes_name.dart';
 import 'package:restaurant_menu_app/views/screens/home_screen.dart';
