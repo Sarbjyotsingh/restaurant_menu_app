@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:restaurant_menu_app/utils/colors.dart';
 import 'package:restaurant_menu_app/utils/routes/routes.dart';
 import 'package:restaurant_menu_app/utils/routes/routes_name.dart';
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Restaurant Menu App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: kWhiteColor,
       ),
       initialRoute: RoutesName.home,
       onGenerateRoute: Routes.generateRoute,
