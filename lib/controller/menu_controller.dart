@@ -14,7 +14,6 @@ class MenuControllerNotifier extends StateNotifier<MenuModel> {
     getAllDishesForMenu();
   }
 
-
   /// Fetches all dishes for the menu and updates the state of the provider.
   Future<void> getAllDishesForMenu() async {
     // Perform your API call to fetch all dishes here
@@ -52,5 +51,3 @@ class MenuControllerNotifier extends StateNotifier<MenuModel> {
     state = MenuModel(dishes: []);
   }
 }
-
-
