@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:restaurant_menu_app/utils/colors.dart';
 import 'package:restaurant_menu_app/utils/constants.dart';
+import 'package:restaurant_menu_app/utils/routes/routes_name.dart';
 import 'package:restaurant_menu_app/views/widgets/menu_headline_widget.dart';
 import 'package:restaurant_menu_app/views/widgets/select_menu_type_widget.dart';
 
@@ -29,7 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: kPurpleColor,
                 icon: kGuestIcon,
                 iconColor: kYellowColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RoutesName.guest);
+                },
               ),
             ),
             Expanded(
@@ -39,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 backgroundColor: kGreenColor,
                 icon: kStaffIcon,
                 iconColor: kBlackColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RoutesName.staff);
+                },
               ),
             ),
           ],
