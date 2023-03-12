@@ -54,3 +54,11 @@ const kGuestIcon = FontAwesomeIcons.users;
 const kStaffIcon = FontAwesomeIcons.userTie;
 
 const kBackButton = Icons.arrow_back_ios_new;
+
+const kAppetizerIcon = FontAwesomeIcons.pepperHot;
+
+const kEntreeIcon = FontAwesomeIcons.bowlFood;
+
+const kDessertIcon = FontAwesomeIcons.cheese;
+
+const kBeverageIcon = FontAwesomeIcons.martiniGlass;
