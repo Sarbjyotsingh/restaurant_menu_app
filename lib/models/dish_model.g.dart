@@ -10,11 +10,11 @@ DishModel _$DishModelFromJson(Map<String, dynamic> json) => DishModel(
       id: json['_id'] as String?,
       name: json['name'] as String?,
       description: json['description'] as String?,
-      price: json['price'] as String?,
+      price: (json['price'] as num?)?.toDouble(),
       mealCategory:
           $enumDecodeNullable(_$MealCategoriesEnumMap, json['mealCategory']),
       mealType: $enumDecodeNullable(_$MealTypeEnumMap, json['mealType']),
-      isAvailable: json['isAvailable'] as bool?,
+      isAvailable: json['isAvailable'] as bool? ?? true,
       waitingTimeInMinutes: json['waitingTimeInMinutes'] as int?,
     );
 

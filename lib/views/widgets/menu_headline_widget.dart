@@ -17,7 +17,7 @@ class MenuHeadlineWidget extends StatelessWidget {
         FaIcon(
           kMenuIcon,
           size: 35,
-          color: kPrimaryColor,
+          color: kPrimaryLightColor,
         ),
         kWidthSizedBox,
         Text(

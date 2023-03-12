@@ -20,8 +20,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Restaurant Menu App',
       theme: ThemeData(
-        primaryColor: kPrimaryColor,
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: kPrimaryColor),
+        primaryColor: kPrimaryLightColor,
         scaffoldBackgroundColor: kWhiteColor,
+        appBarTheme: const AppBarTheme(
+          color: kPrimaryLightColor,
+          elevation: 0,
+        ),
       ),
       initialRoute: RoutesName.home,
       onGenerateRoute: Routes.generateRoute,

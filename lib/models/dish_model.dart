@@ -10,10 +10,10 @@ class DishModel {
   final String? id;
   String? name;
   String? description;
-  String? price;
+  double? price;
   MealCategories? mealCategory;
   MealType? mealType;
-  bool? isAvailable;
+  bool isAvailable;
   int? waitingTimeInMinutes;
 
   DishModel({
@@ -23,7 +23,7 @@ class DishModel {
     this.price,
     this.mealCategory,
     this.mealType,
-    this.isAvailable,
+    this.isAvailable = true,
     this.waitingTimeInMinutes,
   });
 
@@ -31,4 +31,27 @@ class DishModel {
       _$DishModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$DishModelToJson(this);
+
+  // copyWith Function to provide new object of DishModel with updated Value
+  DishModel copyWith({
+    String? id,
+    String? name,
+    String? description,
+    double? price,
+    MealCategories? mealCategory,
+    MealType? mealType,
+    bool? isAvailable,
+    int? waitingTimeInMinutes,
+  }) {
+    return DishModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      price: price ?? this.price,
+      mealCategory: mealCategory ?? this.mealCategory,
+      mealType: mealType ?? this.mealType,
+      isAvailable: isAvailable ?? this.isAvailable,
+      waitingTimeInMinutes: waitingTimeInMinutes ?? this.waitingTimeInMinutes,
+    );
+  }
 }
