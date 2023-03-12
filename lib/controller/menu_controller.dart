@@ -26,10 +26,10 @@ class MenuControllerNotifier extends StateNotifier<MenuModel> {
   /// Adds or updates a dish in the menu and updates the state of the provider.
   Future<void> addOrUpdateDishToMenu(DishModel dish) async {
     // Perform your API call to add/update dish to API
-    await MenuAPIResponse.addOrUpdateDishToMenu(dish);
+    DishModel dishItem = await MenuAPIResponse.addOrUpdateDishToMenu(dish);
 
     // Update the state of the provider
-    state = state.copyWith(dishes: [...state.dishes, dish]);
+    state = state.copyWith(dishes: [...state.dishes, dishItem]);
   }
 
   /// Removes a dish from the menu and updates the state of the provider.
