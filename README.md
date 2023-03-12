@@ -20,4 +20,4 @@ In the Current application, we have fetched data from API and displayed it accor
 search text which makes Riverpod a good choice.
 
 ## Demo Video:
-![Uploading demo.gif…]()
+![demo_app](https://user-images.githubusercontent.com/28133782/224562680-64ead832-a2cb-4ad3-beff-475966611424.gif)
