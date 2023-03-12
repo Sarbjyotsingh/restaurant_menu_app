@@ -61,9 +61,10 @@ class _AddDishScreenState extends ConsumerState<AddDishScreen> {
       ref.read(addDishProvider.notifier).addDishToMenu(
             name: _nameController.text,
             description: _descriptionController.text,
-            price: double.parse(_priceController.text) ?? 0.0,
+            price: double.parse(_priceController.text),
             waitingTime: int.parse(_waitingTimeController.text),
           );
+      Navigator.pop(context);
     }
   }
 
@@ -179,10 +180,14 @@ class _AddDishScreenState extends ConsumerState<AddDishScreen> {
                   ),
                 ),
               ),
-              CustomElevatedButton(
-                title: kSubmitText,
-                onPressed: submitForm,
-                isEnabled: true,
+              SizedBox(
+                width: screenWidth,
+                height: screenHeight * 0.05,
+                child: CustomElevatedButton(
+                  title: kSubmitText,
+                  onPressed: submitForm,
+                  isEnabled: true,
+                ),
               ),
             ],
           ),
