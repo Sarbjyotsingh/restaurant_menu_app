@@ -14,6 +14,12 @@ class AddDishControllerNotifier extends StateNotifier<DishModel> {
   final ref;
   AddDishControllerNotifier(this.ref) : super(DishModel());
 
+  /// For editing existing Dish.
+  void setInitValue(DishModel dish) async {
+    // Update the state of the provider
+    state = dish;
+  }
+
   /// Update Availability of Dish.
   void onChangeAvailability() async {
     // Update the state of the provider
@@ -39,14 +45,28 @@ class AddDishControllerNotifier extends StateNotifier<DishModel> {
     required double price,
     required int waitingTime,
   }) {
-    state = state.copyWith(
-      name: name,
-      description: description,
-      price: price,
-      waitingTimeInMinutes: waitingTime,
-    );
+    // Add Dish to menu when item is not exiting in database
+    if (state.id == null) {
+      state = state.copyWith(
+        name: name,
+        description: description,
+        price: price,
+        waitingTimeInMinutes: waitingTime,
+      );
 
-    // Use addOrUpdateDishToMenu from Menu Controller
-    ref.read(menuProvider.notifier).addOrUpdateDishToMenu(state);
+      // Use addOrUpdateDishToMenu from Menu Controller
+      ref.read(menuProvider.notifier).addDishToMenu(state);
+    } else {
+      // Update Dish to menu when item is exiting in database
+      state = state.copyWith(
+        name: name,
+        description: description,
+        price: price,
+        waitingTimeInMinutes: waitingTime,
+      );
+
+      // Use addOrUpdateDishToMenu from Menu Controller
+      ref.read(menuProvider.notifier).updateDishToMenu(state);
+    }
   }
 }

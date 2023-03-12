@@ -24,12 +24,27 @@ class MenuControllerNotifier extends StateNotifier<MenuModel> {
   }
 
   /// Adds or updates a dish in the menu and updates the state of the provider.
-  Future<void> addOrUpdateDishToMenu(DishModel dish) async {
-    // Perform your API call to add/update dish to API
+  Future<void> addDishToMenu(DishModel dish) async {
+    // Perform your API call to add dish to API
     DishModel dishItem = await MenuAPIResponse.addOrUpdateDishToMenu(dish);
 
     // Update the state of the provider
     state = state.copyWith(dishes: [...state.dishes, dishItem]);
+  }
+
+  /// updates a dish in the menu and updates the state of the provider.
+  Future<void> updateDishToMenu(DishModel dish) async {
+    //  Accessing index of dish in List
+    int index = state.dishes.indexWhere((item) => item.id == dish.id);
+
+    // Perform your API call to update dish to API
+    DishModel dishItem = await MenuAPIResponse.addOrUpdateDishToMenu(dish);
+
+    //Changing Current data to updated data
+    state.dishes[index] = dishItem;
+
+    // Update the state of the provider
+    state = state.copyWith(dishes: [...state.dishes]);
   }
 
   /// Removes a dish from the menu and updates the state of the provider.

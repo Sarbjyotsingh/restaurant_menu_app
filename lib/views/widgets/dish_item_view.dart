@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:restaurant_menu_app/controller/add_dish_controller.dart';
 import 'package:restaurant_menu_app/controller/menu_controller.dart';
 import 'package:restaurant_menu_app/models/dish_model.dart';
 import 'package:restaurant_menu_app/utils/colors.dart';
 import 'package:restaurant_menu_app/utils/constants.dart';
 import 'package:restaurant_menu_app/utils/helper_function.dart';
+import 'package:restaurant_menu_app/utils/routes/routes_name.dart';
 import 'package:restaurant_menu_app/views/widgets/custom_elevated_button.dart';
 
 class DishItemView extends ConsumerWidget {
@@ -67,7 +69,10 @@ class DishItemView extends ConsumerWidget {
                     ),
                     CustomElevatedButton(
                       title: 'Edit',
-                      onPressed: () {},
+                      onPressed: () {
+                        ref.watch(addDishProvider.notifier).setInitValue(dish);
+                        Navigator.pushNamed(context, RoutesName.addDish);
+                      },
                       isEnabled: true,
                     ),
                   ],

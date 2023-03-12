@@ -19,6 +19,21 @@ class AddDishScreen extends ConsumerStatefulWidget {
 }
 
 class _AddDishScreenState extends ConsumerState<AddDishScreen> {
+  @override
+  void initState() {
+    super.initState();
+    setInitialValue();
+  }
+
+  // Set Initial Value
+  void setInitialValue() {
+    final dish = ref.read(addDishProvider);
+    _nameController.text = dish.name ?? '';
+    _descriptionController.text = dish.description ?? '';
+    _priceController.text = dish.price?.toStringAsFixed(2) ?? '';
+    _waitingTimeController.text = dish.waitingTimeInMinutes?.toString() ?? '';
+  }
+
   // Form Key
   final _formKey = GlobalKey<FormState>();
 
@@ -65,6 +80,8 @@ class _AddDishScreenState extends ConsumerState<AddDishScreen> {
             waitingTime: int.parse(_waitingTimeController.text),
           );
       Navigator.pop(context);
+      // Reset Form of Adding dish
+      ref.invalidate(addDishProvider);
     }
   }
 
@@ -75,6 +92,16 @@ class _AddDishScreenState extends ConsumerState<AddDishScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            // Reset Form of Adding dish
+            ref.invalidate(addDishProvider);
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            kBackButton,
+          ),
+        ),
         title: const Text(
           kDishText,
           style: kAppBarTextStyle,

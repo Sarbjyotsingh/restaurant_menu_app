@@ -52,3 +52,5 @@ const kMenuIcon = FontAwesomeIcons.utensils;
 const kGuestIcon = FontAwesomeIcons.users;
 
 const kStaffIcon = FontAwesomeIcons.userTie;
+
+const kBackButton = Icons.arrow_back_ios_new;

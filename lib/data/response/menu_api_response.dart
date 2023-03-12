@@ -38,11 +38,14 @@ class MenuAPIResponse {
   /// This method adds a new or update an existing dish to the menu
   static Future<DishModel> addOrUpdateDishToMenu(DishModel dish) async {
     String url = '$apiEndPoint/dishes';
-    DishModel dishItem = await NetworkApiService.getPutApiResponse(
+    _apiResponse = await NetworkApiService.getPutApiResponse(
       url,
       dish.toJson(),
     );
-    return dishItem;
+    MenuAPIResponseModel responseObject =
+        MenuAPIResponseModel.fromJson(_apiResponse);
+    DishModel tempDish = DishModel.fromJson(responseObject.data);
+    return tempDish;
   }
 
   /// This method deletes all the dishes from the menu
