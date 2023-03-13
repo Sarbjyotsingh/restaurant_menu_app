@@ -16,8 +16,6 @@ maintainability and readability of your codebase
 Riverpod is highly scalable and can be used in both small and large applications. It
 provides a flexible architecture that allows you to manage states across different layers
 of your application.
-In the Current application, we have fetched data from API and displayed it according to
-search text which makes Riverpod a good choice.
 
 ## Demo Video:
 ![demo_app](https://user-images.githubusercontent.com/28133782/224562680-64ead832-a2cb-4ad3-beff-475966611424.gif)
